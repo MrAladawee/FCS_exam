@@ -38,6 +38,11 @@ int main() {
     cin >> N;
     cout << endl;
 
+    if (N <= 0) {
+        cout << "Error! You've written incorrect size of the array!";
+        return -1;
+    }
+
     // Array declaration
     int* array = new int[N];
 
@@ -65,4 +70,6 @@ int main() {
         }
     }
     print_array(array,N);
+
+    return 0;
 }
