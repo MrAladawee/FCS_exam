@@ -1,5 +1,6 @@
 #include <iostream>
 #include <locale> // для tolower()
+#include <cstring>
 
 // Палиндром ли?
 
@@ -33,7 +34,45 @@ int main() {
     gets(string);
 
     // To determine
-    if (check_palindrom(string) == true) { cout << "Yes, it's a palindrome!"; return 0; }
-    else { cout << "No, it's not a palindrome! :("; return -1; }
+    int count_ = 0;
+    int i = 0;
+    while (string[i] != '\0') {
+        if (string[i] == ' ') {
+            count_++;
+        }
+        i++;
+    }
 
+    if (count_ == 0) {
+        if (check_palindrom(string) == true) {
+            cout << "Yes, it's a palindrome!";
+            return 0;
+        }
+        else {
+            cout << "No, it's not a palindrome! :(";
+            return -1;
+        }
+    }
+
+    else {
+        char* s_copy = new char[strlen(string)];
+        strcpy_s(s_copy,strlen(string) + 1, string);
+        char *context;
+        char *temp = s_copy; //копия указ, а не строки
+        char result[256] = "";
+        while (char *part = strtok_s(temp," ",&context)) {
+            int a;
+            a = atoi(part);
+            strcat(result,part);
+            temp = nullptr;
+        }
+        if (check_palindrom(result) == true) {
+            cout << "Yes, it's a palindrome!";
+            return 0;
+        }
+        else {
+            cout << "No, it's not a palindrome! :(";
+            return -1;
+        }
+    }
 }
