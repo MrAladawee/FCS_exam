@@ -75,7 +75,7 @@ int main() {
     // Error
     //
     //
-    if (size_str_1 <= 0 || size_str_2 <= 0 || size_col_1 <= 0 || size_col_2 <= 0) { cout << "Error! Your sizes of matrices is wrong for multiply!"; return -1;}
+    if (size_str_1 <= 0 || size_str_2 <= 0 || size_col_1 <= 0 || size_col_2 <= 0) { cout << "Error! Your sizes of matrices is wrong!"; return -1;}
 
     // Initialization
     //
