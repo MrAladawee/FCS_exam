@@ -99,7 +99,7 @@ int main() {
     // Error
     //
     //
-    if (size_str <= 0 || size_col <= 0) { cout << "Error! Your size of matrix is wrong!"; return -1;}
+    if (size_str <= 0 || size_col <= 0 || size_str != size_col) { cout << "Error! Your size of matrix is wrong!"; return -1;}
 
     // Initialization
     //
