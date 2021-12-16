@@ -1,28 +1,11 @@
 #include <iostream>
 #include <ctime>
+#include "m_funcs.h"
 
 using namespace std;
 
 int random() {
     return rand()%90 + 10;
-}
-
-void initialization(int **array, const int size_str, const int size_col) {
-    for (int str = 0; str < size_str; str++) {
-        for (int col = 0; col < size_col; col++) {
-            array[str][col] = random();
-        }
-    }
-}
-
-void print_array(int **array, const int size_str, const int size_col) {
-    for (int str = 0; str < size_str; str++) {
-        for (int col = 0; col < size_col; col++) {
-            cout << array[str][col] << " ";
-        }
-        cout << endl;
-    }
-    cout << endl;
 }
 
 void delete_str_col(int **array, int **array_result, const int size_str, const int size_col, const int size_str_res, const int size_col_res) {
