@@ -4,10 +4,6 @@
 
 using namespace std;
 
-int random() {
-    return rand()%90 + 10;
-}
-
 void delete_str_col(int **array, int **array_result, const int size_str, const int size_col, const int size_str_res, const int size_col_res) {
 
     int min_element = array[0][0]; // не 0, т.к могут быть отриц.числа в матрице
@@ -85,4 +81,8 @@ int main() {
     delete_str_col(array,array_result,size_str_1,size_col_1,size_str_2,size_col_2);
 
     print_array(array_result, size_str_2, size_col_2);
+    
+    // Clear memory
+    del_array(array,size_str_1,size_col_1);
+    del_array(array_result,size_str_2,size_col_2);
 }
