@@ -1,29 +1,7 @@
 #include <iostream>
 #include <ctime>
-
+#include "m_funcs.h"
 using namespace std;
-
-int random() {
-    return rand()%(99 - -99 + 1) + -99;
-}
-
-void initialization(int **array, const int size_str, const int size_col) {
-    for (int str = 0; str < size_str; str++) {
-        for (int col = 0; col < size_col; col++) {
-            array[str][col] = random();
-        }
-    }
-}
-
-void print_array(int **array, const int size_str, const int size_col) {
-    for (int str = 0; str < size_str; str++) {
-        for (int col = 0; col < size_col; col++) {
-            cout << array[str][col] << " ";
-        }
-        cout << endl;
-    }
-    cout << endl;
-}
 
 void replace_str_col_with_fixation_element(int **array, const int size_str, const int size_col) {
 
@@ -125,5 +103,8 @@ int main() {
 
     cout << "New matrix is:" << endl;
     print_array(array, size_str, size_col);
-
+    
+    
+    // Memory clear
+    del_array(array,size_str,size_col);
 }
