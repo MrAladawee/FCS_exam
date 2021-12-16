@@ -1,29 +1,7 @@
 #include <iostream>
 #include <ctime>
-
+#include "m_funcs.h"
 using namespace std;
-
-int random() {
-    return rand()%90 + 10;
-}
-
-void initialization(int **array, const int size_str, const int size_col) {
-    for (int str = 0; str < size_str; str++) {
-        for (int col = 0; col < size_col; col++) {
-            array[str][col] = random();
-        }
-    }
-}
-
-void print_array(int **array, const int size_str, const int size_col) {
-    for (int str = 0; str < size_str; str++) {
-        for (int col = 0; col < size_col; col++) {
-            cout << array[str][col] << " ";
-        }
-        cout << endl;
-    }
-    cout << endl;
-}
 
 void replace_element_from_min_to_max(int **array, const int size_str, const int size_col) {
 
@@ -109,4 +87,7 @@ int main() {
 
     cout << "New matrix is:" << endl;
     print_array(array, size_str, size_col);
+    
+    // Memory clear
+    del_array(array,size_str,size_col);
 }
