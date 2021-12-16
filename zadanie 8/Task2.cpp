@@ -1,31 +1,9 @@
 #include <iostream>
 #include <ctime>
-
+#include "m_funcs.h"
 // Умножение матриц.
 
 using namespace std;
-
-int random() {
-    return rand()%90 + 10;
-}
-
-void initialization(int **array, const int size_str, const int size_col) {
-    for (int str = 0; str < size_str; str++) {
-        for (int col = 0; col < size_col; col++) {
-            array[str][col] = random();
-        }
-    }
-}
-
-void print_array(int **array, const int size_str, const int size_col) {
-    for (int str = 0; str < size_str; str++) {
-        for (int col = 0; col < size_col; col++) {
-            cout << array[str][col] << " ";
-        }
-        cout << endl;
-    }
-    cout << endl;
-}
 
 void multiply(int **array_1, int**array_2, const int size_str_1, const int size_col_1, const int size_str_2, const int size_col_2) {
 
@@ -105,4 +83,8 @@ int main() {
     multiply(array_1,array_2,size_str_1,size_col_1,size_str_2,size_col_2);
 
     return 0;
+    
+    // Memory clear
+    del_array(array_1,size_str_1,size_col_1);
+    del_array(array_2,size_str_2,size_col_2);
 }
