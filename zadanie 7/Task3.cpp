@@ -5,15 +5,8 @@
 
 using namespace std;
 
-int main() {
-
-    char string[256];
-    char array[128];
+void lfp(char* string, char* array) {
     int i = 0;
-
-    // Initialization
-    cout << "Write the last name, first name, patronymic:" << endl;
-    gets(string);
 
     // Work with last name.
     while (string[i] != ' '){
@@ -29,6 +22,21 @@ int main() {
         }
     }
     cout << ' ' << array;
+
+
+}
+
+int main() {
+
+    char string[256];
+    char array[128];
+
+    // Initialization
+    cout << "Write the last name, first name, patronymic:" << endl;
+    gets(string);
+    
+    // Main part
+    lfp(string,array);
 
     return 0;
 }
