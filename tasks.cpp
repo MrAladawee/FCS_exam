@@ -1,7 +1,3 @@
-//
-// М. Э. Абрамян. Programming Taskbook Электронный задачник по программированию. Версия 4.5
-//
-
 #include <iostream>
 #include <cmath>
 #include <ctime>
@@ -2004,6 +2000,7 @@ string param42(string s) {
             tmp += s[index];
             count++;
         }
+
         else {
 
             if (count > 4) {
@@ -2100,7 +2097,76 @@ void recieve_matrix_from_file(int** &matrix, const int size_str, const int size_
     print_matrix(matrix,size_str,size_col);
 }
 
+unsigned long int recur1(unsigned long int N) {
+
+    if (N == 0 || N == 1) {
+        return 1;
+    }
+
+    return N * recur1(N-1);
+}
+
+double recur3(int X, int N) {
+
+    if (N == 0) {
+        return 1;
+    }
+
+    else if (N > 0 && N % 2 == 0) {
+        return pow(recur3(X,N/2),2);
+    }
+
+    else if (N > 0 && N % 2 != 0) {
+        return X*recur3(X,N-1);
+    }
+
+    else if (N < 0) {
+        return 1/pow(X,-N);
+    }
+
+}
+
+int recur4(int N) {
+
+    if (N == 1 || N == 2) {
+        return 1;
+    }
+    return recur4(N-1) + recur4(N-2);
+}
+
+int recur6(int N, int K) {
+
+    if (N == K  || K == 0) { return 1; }
+
+    else if (N > 0 && K > 0 && N > K) { return recur6(N-1,K) + recur6(N-1,K-1); }
+
+}
+
+bool recur13(string s) {
+
+    // Basic comparison
+    //
+    if (s[0] != s[s.size() - 1]) {
+        return false;
+    }
+
+    // Exceptions
+    //
+    if (s.size() == 1) return true;
+    else if (s.size() == 2) { return s[0] == s[1]; }
+
+    // Challenging yourself
+    //
+    else if (s.size() > 2) {
+        s.erase(0, 1);
+        s.pop_back();
+        return recur13(s);
+    }
+    
+}
+
 int main() {
 
-  
+    cout << recur13("aaa");
+
 }
